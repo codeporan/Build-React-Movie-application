@@ -53,7 +53,6 @@ export default (state = initalState, action = {}) => {
       return {
         ...state
       };
-
     default: {
       return state;
     }

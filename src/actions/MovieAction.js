@@ -59,3 +59,36 @@ export const clearingMovieState = () => {
     payload: {}
   };
 };
+// export const fetchGenre = (page = 1, type = "popular") => {
+//   const request = axios
+//     .get(
+//       `https://api.themoviedb.org/3/movie/${type}?api_key=fed69657ba4cc6e1078d2a6a95f51c8c&language=en-US&page=${page}`
+//       // `${API_MOVIE_URL}/genre/movie/${type}/${API_KEY}&page=${page}`
+//       // "https://api.themoviedb.org/3/movie/550?api_key=6d166c524405fe75234d2f5aaf4b2f90"
+//     )
+//     .then(res => res.data);
+//   return {
+//     type: FETCH_MOVIE_DETAILS,
+//     payload: request
+//   };
+// };
+// export function fetchGenre() {
+//   return dispatch => {
+//       dispatch({
+//           type: FETCH_MOVIE_DETAILS,
+//           payload: axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=fed69657ba4cc6e1078d2a6a95f51c8c&language=en-US')
+//       })
+//   }
+// }
+
+// export function fetchMovie(id) {
+//   const request = axios.get(
+//     `https://api.themoviedb.org/3/movie/${id}?api_key=fed69657ba4cc6e1078d2a6a95f51c8c&language=en-US`
+//   );
+//   return dispatch => {
+//     dispatch({
+//       type: FETCH_MOVIE_DETAILS,
+//       payload: request
+//     });
+//   };
+// }

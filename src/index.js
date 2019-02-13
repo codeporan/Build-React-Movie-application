@@ -3,11 +3,12 @@ import ReactDOM from "react-dom";
 
 import { BrowserRouter } from "react-router-dom";
 import Routes from "./containers/App";
-// import "./index.css";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import promiseMiddleware from "redux-promise";
 import ReduxThunk from "redux-thunk";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./style/style.css";
 
 import Reducer from "./reducers/index";
 
