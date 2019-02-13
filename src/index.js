@@ -1,38 +1,33 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "semantic-ui-css/semantic.min.css";
+
+import { BrowserRouter } from "react-router-dom";
+import Routes from "./containers/App";
+// import "./index.css";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
-import { BrowserRouter } from "react-router-dom";
-import { composeWithDevTools } from "redux-devtools-extension";
-import "bootstrap/dist/css/bootstrap.min.css";
+import promiseMiddleware from "redux-promise";
 import ReduxThunk from "redux-thunk";
-import registerServiceWorker from "./registerServiceWorker";
-import reducers from "./reducers";
-import App from "./containers/App";
-import "./style/style.css";
 
-const createStoreWithMiddleware = applyMiddleware(ReduxThunk)(createStore);
+import Reducer from "./reducers/index";
 
-const rootEl = document.getElementById("root");
-let render = () => {
-  ReactDOM.render(
-    <Provider
-      store={createStoreWithMiddleware(reducers, composeWithDevTools())}
-    >
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>,
-    rootEl
-  );
-};
+const createStoreWithMiddleware = applyMiddleware(
+  promiseMiddleware,
+  ReduxThunk
+)(createStore);
 
-if (module.hot) {
-  module.hot.accept("./containers/App", () => {
-    setTimeout(render);
-  });
-}
+ReactDOM.render(
+  <Provider
+    store={createStoreWithMiddleware(
+      Reducer,
+      window.__REDUX_DEVTOOLS_EXTENSION__ &&
+        window.__REDUX_DEVTOOLS_EXTENSION__()
+    )}
+  >
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
+  </Provider>,
 
-render();
-registerServiceWorker();
+  document.getElementById("root")
+);
