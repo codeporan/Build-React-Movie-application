@@ -61,9 +61,20 @@ class Header extends Component {
                   className="nav-link"
                   activeClassName="active"
                   exact
-                  to="/series"
+                  to="/now"
                 >
-                  Popular Series
+                  Now Playing
+                </NavLink>
+              </li>
+
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link"
+                  activeClassName="active"
+                  exact
+                  to="/top_rated"
+                >
+                  Top Rated
                 </NavLink>
               </li>
             </ul>

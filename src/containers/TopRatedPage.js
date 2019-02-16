@@ -3,18 +3,19 @@ import MovieCardList from "../components/MoviesCardList";
 import { connect } from "react-redux";
 import Pagination from "react-js-pagination";
 import { fetchMovies } from "../actions/MoviesAction";
-class HomePage extends Component {
+class TopRatedPage extends Component {
   componentDidMount() {
-    this.props.dispatch(fetchMovies());
+    this.props.dispatch(fetchMovies(1, "top_rated"));
   }
   handlePageChange = pagenumber => {
-    this.props.dispatch(fetchMovies(pagenumber));
+    this.props.dispatch(fetchMovies(pagenumber, "top_rated"));
   };
   render() {
     const { movies } = this.props.movies;
+
     return (
       <div>
-        <h1 className="text-center page-title">Popular Movies</h1>
+        <h1 className="text-center page-title">Top Rated Movies</h1>
         <div className="row">
           <div className="col-md-12">
             <MovieCardList movies={movies.results} loading={movies.loading} />
@@ -44,4 +45,4 @@ const mapstate = state => ({
   movies: state.movies
 });
 
-export default connect(mapstate)(HomePage);
+export default connect(mapstate)(TopRatedPage);

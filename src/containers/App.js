@@ -3,7 +3,8 @@ import { Switch, Route } from "react-router-dom";
 import MoviesCategoryContainer from "./MovieCategoryContainer";
 import MoviePage from "./MoviePage";
 import HomePage from "./HomePage";
-import TopSeriesPage from "./TopSeriesPage";
+import NowPlayingPage from "./NowPlaying";
+import TopRatedPage from "./TopRatedPage";
 import UpcomingPage from "./UpcomingPage";
 import GenrePage from "./GenrePage";
 import ActorPage from "./ActorPage";
@@ -20,7 +21,8 @@ const App = () => (
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/upcoming" component={UpcomingPage} />
-            <Route exact path="/series" component={TopSeriesPage} />
+            <Route exact path="/now" component={NowPlayingPage} />
+            <Route exact path="/top_rated" component={TopRatedPage} />
             <Route exact path="/genres/:id/:genre" component={GenrePage} />
             <Route exact path="/movies/:id" component={MoviePage} />
             <Route exact path="/actors/:id" component={ActorPage} />

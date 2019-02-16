@@ -1,8 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
+const Sidebar = ({ genres }) => {
+  const genrelist = () => {
+    return (
+      genres &&
+      genres.map(movie => (
+        <div key={movie.id}>
+          {movie.name}
+          )}
+        </div>
+      ))
+    );
+  };
 
-class Sidebar extends Component {
-  render() {
-    return <div>Sidebar</div>;
-  }
-}
+  return <div>{genrelist()}</div>;
+};
+
 export default Sidebar;
