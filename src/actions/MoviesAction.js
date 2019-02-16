@@ -10,7 +10,7 @@ import {
 export const fetchgenre = () => {
   const request = axios
     .get(
-      "https://api.themoviedb.org/3/genre/movie/list?api_key=6d166c524405fe75234d2f5aaf4b2f90"
+      "https://api.themoviedb.org/3/genre/movie/list?api_key=fed69657ba4cc6e1078d2a6a95f51c8c&language=en-US"
     )
     .then(res => res.data);
   return {
@@ -22,7 +22,7 @@ export const fetchgenre = () => {
 export const fetchMoviesByGenre = (page = 1, genreId) => {
   const request = axios
     .get(
-      `https://api.themoviedb.org/3/genre/${genreId}/movies?api_key=6d166c524405fe75234d2f5aaf4b2f90&page=${page}&language=en-US&include_adult=false&sort_by=created_at.asc`
+      `https://api.themoviedb.org/3/genre/${genreId}/movies?api_key=fed69657ba4cc6e1078d2a6a95f51c8c&page=${page}&language=en-US&include_adult=false&sort_by=created_at.asc`
     )
     .then(res => res.data);
   return {

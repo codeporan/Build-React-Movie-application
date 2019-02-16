@@ -7,13 +7,10 @@ class MovieCategoryContainer extends Component {
     this.props.dispatch(fetchgenre());
   }
   render() {
-    // console.log(this.props.movies.genres);
-    const { genres } = this.props.movies;
-    // console.log(genres);
+    const { genres } = this.props.movies.genres;
     return (
       <div>
-        {/* {genres.name} */}
-        {/* <SideBar genres={genres} /> */}
+        <SideBar genres={genres} />
       </div>
     );
   }

@@ -38,35 +38,37 @@ class MoviePage extends Component {
   componentWillUnmount() {
     this.props.dispatch(clearingMovieState());
   }
+
   render() {
     const {
       movie_details,
       movie_videos,
-      trailer,
       actors,
       relatedMovies,
       reviews
     } = this.props.movie;
-    console.log(actors);
-    console.log("trailler", this.props.movie.trailer);
-    console.log(relatedMovies);
-    console.log(reviews);
-    console.log(movie_videos);
+    // const movies = movie_videos.filter(item => item.site === "Youtube")[0];
+    // console.log(movies);
 
     return (
       <div className="row">
         <div className="col-md-12">
           <MovieHeader
             movie={movie_details}
-            trailer={trailer}
+            // trailer={movie_videos}
             actors={actors}
           />
         </div>
         <div className="col-md-12">
-          {reviews.length > 0 ? <div className="col-md-12">
-          <MovieReview reviews={reviews}/></div> : null}
+          {reviews.length > 0 ? (
+            <div className="col-md-12">
+              <MovieReview reviews={reviews} />
+            </div>
+          ) : null}
           {relatedMovies.length > 0 ? (
-            <div className="col-md-12"><RelatedMovie movies={relatedMovies}/></div>
+            <div className="col-md-12">
+              <RelatedMovie movies={relatedMovies} />
+            </div>
           ) : null}
         </div>
       </div>

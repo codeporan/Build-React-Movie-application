@@ -3,20 +3,19 @@ import Rating from "react-rating";
 import ReactPlayer from "react-player";
 import ActorsList from "./ActorsList";
 import Labels from "./Labels";
-import Models from "./models";
-import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
+// import Models from "./models";
+import { Button } from "reactstrap";
 class MovieHeader extends Component {
-  state = {
-    model: false
-  };
-  toggle = () => {
-    this.setState({
-      model: !this.state.model
-    });
-  };
+  // state = {
+  //   model: false
+  // };
+  // toggle = () => {
+  //   this.setState({
+  //     model: !this.state.model
+  //   });
+  // };
   render() {
     const { movie, trailer, actors } = this.props;
-    console.log(movie.genres);
     const headerStyle = {
       backgroundImage: `linear-gradient(rgba(3, 3, 3, 0.30), rgba(0, 0, 5, 0.30)), url(https://image.tmdb.org/t/p/w1400_and_h450_bestv2${
         movie.backdrop_path
@@ -28,6 +27,12 @@ class MovieHeader extends Component {
     };
     return (
       <div className="raw">
+        <div>
+          {/* {trailer.results &&
+            trailer.results.filter(item => (
+              <div key={item.id}>{item.site === "YouTube"}</div>
+            ))[0]} */}
+        </div>
         <div>
           <div className="col-md-3">
             <img

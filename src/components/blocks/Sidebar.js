@@ -1,18 +1,22 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 const Sidebar = ({ genres }) => {
   const genrelist = () => {
     return (
       genres &&
-      genres.map(movie => (
-        <div key={movie.id}>
-          {movie.name}
-          )}
-        </div>
+      genres.map(genre => (
+        <NavLink
+          className="list-group-item"
+          key={genre.id}
+          to={`/genres/${genre.id}/${genre.name}`}
+        >
+          {genre.name}
+        </NavLink>
       ))
     );
   };
 
-  return <div>{genrelist()}</div>;
+  return <div className="list-group">{genrelist()}</div>;
 };
 
 export default Sidebar;

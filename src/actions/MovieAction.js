@@ -8,7 +8,7 @@ import {
   FETCH_MOVIE_REVIEWS,
   CLEANING_MOVIE_STATE
 } from "./constants";
-export const fetchMovieByid = (id = 550) => {
+export const fetchMovieByid = id => {
   const request = axios
     .get(`${API_MOVIE_URL}/movie/${id}${API_KEY}`)
     .then(res => res.data);
@@ -17,7 +17,7 @@ export const fetchMovieByid = (id = 550) => {
     payload: request
   };
 };
-export const fetchMovieByVideo = (id = 550) => {
+export const fetchMovieByVideo = id => {
   const request = axios
     .get(`${API_MOVIE_URL}/movie/${id}/videos${API_KEY}`)
     .then(res => res.data);
@@ -26,7 +26,7 @@ export const fetchMovieByVideo = (id = 550) => {
     payload: request
   };
 };
-export const fetchMovieByReview = (id = 297761) => {
+export const fetchMovieByReview = id => {
   const request = axios
     .get(`${API_MOVIE_URL}/movie/${id}/reviews${API_KEY}`)
     .then(res => res.data);
@@ -35,7 +35,7 @@ export const fetchMovieByReview = (id = 297761) => {
     payload: request
   };
 };
-export const fetchMovieByCast = (id = 550) => {
+export const fetchMovieByCast = id => {
   const request = axios
     .get(`${API_MOVIE_URL}/movie/${id}/credits${API_KEY}`)
     .then(res => res.data);
@@ -44,7 +44,7 @@ export const fetchMovieByCast = (id = 550) => {
     payload: request
   };
 };
-export const fetchMovieByRelated = (id = 106912) => {
+export const fetchMovieByRelated = id => {
   const request = axios
     .get(`${API_MOVIE_URL}/movie/${id}/similar${API_KEY}`)
     .then(res => res.data);
