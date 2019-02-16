@@ -22,7 +22,9 @@ class GenrePage extends Component {
     const { genreMovies } = this.props.movies;
     return (
       <div>
-        <h1 className="text-center page-title">Popular Movies</h1>
+        <h1 className="text-center page-title">
+          {this.props.match.params.genre}
+        </h1>
         <div className="row">
           <div className="col-md-12">
             <MovieCardList
