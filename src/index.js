@@ -9,6 +9,8 @@ import promiseMiddleware from "redux-promise";
 import ReduxThunk from "redux-thunk";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style/style.css";
+import "./style/movie.css";
+import "react-circular-progressbar/dist/styles.css";
 
 import Reducer from "./reducers/index";
 

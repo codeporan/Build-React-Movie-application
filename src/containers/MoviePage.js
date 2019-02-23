@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import MovieHeader from "../components/MovieHeader";
 import MovieReview from "../components/ReviewsList";
 import RelatedMovie from "../components/MoviesCardList";
-
+import Movie from "../components/movie/index";
+import { getPeople } from "../actions/Actoractions";
 import {
   fetchMovieByCast,
   fetchMovieByRelated,
@@ -21,6 +22,9 @@ class MoviePage extends Component {
     this.props.dispatch(fetchMovieByReview(id));
     this.props.dispatch(fetchMovieByVideo(id));
     this.props.dispatch(fetchMovieByRelated(id));
+  }
+  componentDidMount() {
+    this.props.dispatch(getPeople());
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -47,24 +51,24 @@ class MoviePage extends Component {
       relatedMovies,
       reviews
     } = this.props.movie;
-    // const movies = movie_videos.filter(item => item.site === "Youtube")[0];
-    // console.log(movies);
+    const { actorlist } = this.props.actor;
 
     return (
       <div className="row">
         <div className="col-md-12">
           <MovieHeader
             movie={movie_details}
-            // trailer={movie_videos}
             actors={actors}
+            person={actorlist.results}
           />
         </div>
         <div className="col-md-12">
-          {reviews.length > 0 ? (
+          {reviews.length ? (
             <div className="col-md-12">
               <MovieReview reviews={reviews} />
             </div>
           ) : null}
+
           {relatedMovies.length > 0 ? (
             <div className="col-md-12">
               <RelatedMovie movies={relatedMovies} />
@@ -76,6 +80,7 @@ class MoviePage extends Component {
   }
 }
 const mapstate = state => ({
-  movie: state.movie
+  movie: state.movie,
+  actor: state.actor
 });
 export default connect(mapstate)(MoviePage);

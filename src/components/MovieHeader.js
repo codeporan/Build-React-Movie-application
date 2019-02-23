@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Rating from "react-rating";
 import ReactPlayer from "react-player";
+import CircularProgressbar from "react-circular-progressbar";
 import ActorsList from "./ActorsList";
 import Labels from "./Labels";
 // import Models from "./models";
@@ -15,6 +16,13 @@ class MovieHeader extends Component {
   //   });
   // };
   render() {
+    console.log(this.props.person);
+    const time_convert = num => {
+      var hours = Math.floor(num / 60);
+      var minutes = num % 60;
+      return hours + "h " + minutes + "m";
+    };
+
     const { movie, trailer, actors } = this.props;
     const headerStyle = {
       backgroundImage: `linear-gradient(rgba(3, 3, 3, 0.30), rgba(0, 0, 5, 0.30)), url(https://image.tmdb.org/t/p/w1400_and_h450_bestv2${
@@ -25,56 +33,122 @@ class MovieHeader extends Component {
       const d = new Date(stringDate);
       return d.getFullYear();
     };
+    function financial(x) {
+      return Number.parseFloat(x).toFixed(2);
+    }
+    console.log(actors);
     return (
-      <div className="raw">
-        <div>
-          {/* {trailer.results &&
-            trailer.results.filter(item => (
-              <div key={item.id}>{item.site === "YouTube"}</div>
-            ))[0]} */}
-        </div>
-        <div>
-          <div className="col-md-3">
-            <img
-              src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${
-                movie.poster_path
-              }`}
-              className="img-responsive movie-poster"
-            />
+      <div className="row">
+        <div className="col-md-4">
+          <div className="poster">
+            <div className="image_content">
+              <img
+                src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${
+                  movie.poster_path
+                }`}
+                className="img-responsive movie-poster"
+              />
+            </div>
           </div>
-          <div className="col-md-8">
-            <div className="row">
-              <div className="col-md-12">
-                <h1 className="movie-title">{movie.original_title}</h1>
-                <h4 className="movie-release">{getYear(movie.release_date)}</h4>
-              </div>
+        </div>
+        <div className="col-md-8">
+          <div className="header poster">
+            <div className="title" dir="auto">
+              <span>
+                <a href="/movie/399579-alita-battle-angel">
+                  <h2 className="movie_title">
+                    {movie.original_title} (
+                    <span className="release_date">
+                      {getYear(movie.release_date)}
+                    </span>
+                    )
+                  </h2>
+                </a>
+              </span>
             </div>
-            <div className="row">
-              <div className="col-md-12">
-                <p className="movie-vote">
-                  {movie.vote_average}
-                  <Rating
-                    initialRating={movie.vote_average}
-                    emptySymbol="fa fa-star-o"
-                    fullSymbol="fa fa-star"
-                    stop={10}
-                    step={2}
-                  />
-                  <Labels labels={movie.genres} />
-                </p>
-              </div>
-            </div>
-            <div className="row movie-overview">
-              <div className="col-md-12">
-                <h1>Overview</h1>
+            <ul className="movie-rating">
+              <CircularProgressbar
+                percentage={movie.vote_average * 10}
+                text={movie.vote_average}
+                strokeWidth={10}
+              />
+            </ul>
+            <div className="header_info">
+              <h3 dir="auto">Overview</h3>
+              <div className="overview" dir="auto">
                 <p>{movie.overview}</p>
               </div>
             </div>
-            <div className="row movie-billed">
-              <div className="col-md-12">
-                <h1>Top Billed Cast</h1>
-                <ActorsList actors={actors} />
+          </div>
+        </div>
+        <div className="col-md-9">
+          <div className="row movie-billed">
+            <div className="col-md-12">
+              <h1>Top Billed Cast</h1>
+              <ActorsList actors={actors} />
+            </div>
+          </div>
+        </div>
+        <div className="col-md-3">
+          <div className="right-column">
+            <div className="bar">
+              <h4>Facts</h4>
+              <div>
+                <p>
+                  <strong>
+                    <bdi>Status</bdi>
+                  </strong>
+                  {movie.status}
+                </p>
+                <p class="no_bottom_pad">
+                  <strong>Release Information</strong>
+                  {movie.release_date}
+                </p>
+                <p>
+                  <strong>
+                    <bdi>Original Language</bdi>
+                  </strong>
+                  {movie.spoken_languages &&
+                    movie.spoken_languages
+                      .slice(0, 1)
+                      .map(lng => <p key={lng.iso_639_1}>{lng.name}</p>)}
+                </p>
+                <p>
+                  <strong>
+                    <bdi>Runtime</bdi>
+                  </strong>
+                  {time_convert(movie.runtime)}
+                </p>
+                <p>
+                  <strong>
+                    <bdi>Budget</bdi>
+                  </strong>
+
+                  {financial(movie.budget)}
+                </p>
+                <p>
+                  <strong>
+                    <bdi>Revenue</bdi>
+                  </strong>{" "}
+                  {financial(movie.revenue)}
+                </p>
               </div>
+              <section class="genres right_column">
+                <h4>
+                  <bdi>Genres</bdi>
+                </h4>
+
+                <ul>
+                  {movie.genres &&
+                    movie.genres.map(genre => (
+                      <li key={genre.id}>
+                        <a href={`/genres/${genre.id}/${genre.name}`}>
+                          {genre.name}
+                        </a>
+                      </li>
+                    ))}
+                </ul>
+              </section>
             </div>
           </div>
         </div>

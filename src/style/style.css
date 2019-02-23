@@ -15,7 +15,7 @@
     padding-top: 14rem;
     padding-right: 5rem;
     padding-left: 5rem;
-    background: #232528;
+    background: #353535;
     color: #e9e9e9; }
 
   .list {
@@ -130,7 +130,8 @@
       right: .5rem;
       top: .5rem;
       font-weight: 400;
-      background-image: linear-gradient(168deg, #622774, #c53364);
+      background:#01d277;
+      /* background-image: linear-gradient(168deg, #622774, #c53364); */
       box-shadow: 0.1rem 0.2rem 1.5rem 0.9rem rgba(98, 39, 116, 0.3); }
       .movie-card__vote sup {
         font-size: 1.6rem;
@@ -222,9 +223,13 @@
 
   .mv-header {
     padding: 2.5rem !important;
-    background: #232528 !important; }
+    background: #353535 !important; }
     .mv-header .mv-logo {
-      height: 3rem; }
+      height: 3rem;
+      background: -webkit-linear-gradient(314deg, #622774, #c53364) !important;
+      /* padding-top: 6px; */
+      font-size: 18px;
+      padding: 5px 10px 0px 10px;}
     .mv-header .nav-item:not(:last-child) {
       margin-right: 4rem; }
     .mv-header .nav-item:first-child {
@@ -267,91 +272,282 @@
         background-color: #2e3135 !important;
         border-left: 0.3rem solid #c53364 !important; }
 
-  .actor-card__face--page {
-    display: block;
-    object-fit: cover;
-    object-position: center;
-    border-radius: .5rem; }
+.image_content img {
+  width: 100%;
+  border-radius: 0;
 
-  .actor-card__info {
-    font-size: 1.2rem;
-    padding-top: 0;
-    margin-top: .5rem; }
+}
+.meta {
+  padding: 10px 15px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.meta p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0;
+  width: 100%;
+  line-height: 1.2em;
+  margin: 0;
+}
+.meta p.name a {
+  font-weight: 600;
+  font-size: 1.1em;
+  color: #000000
+}
+.meta p.sub {
+  font-size: 0.9em;
+  font-weight: 400;
+  color: rgba(0,0,0,0.6);
+}
+.item.profile.card {
+  margin-top: 16px;
 
-  .actor-page-info__title {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #666666; }
+}
+.pagination_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.pagination {
+   color: #000;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  max-width: 500px;
+  width: auto;
+}
+div.pagination span.disabled {
+  display: none;
+}
+div.pagination .current {
+  border: 1px solid #000;
+  padding: 2px 8px;
+  margin-right: 4px;
+  font-style: normal;
+  font-weight: 400;
+}
+div.pagination a {
+  font-weight: 600;
+  margin-left: 4px;
+  margin-right: 4px;
+  color: #fff
+}
+.results_profile_card{
+  margin-bottom: 10px
+}
+.card {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1)
+}
 
-  .actor-page-info__content {
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: #e9e9e9; }
+.page-item{
+  font-weight: 600;
+    margin-left: 4px;
+    margin-right: 4px;
+    color: #fff;
+}
+/* .page-item.current{
+  border: 1px solid #000
+} */
+.page-link {
+  border: 1px solid #000;
+  padding: 2px 8px;
+  margin-right: 4px;
+  font-style: normal;
+  font-weight: 400;
+}
+.page-item a{
+  color: #000
+}
+.page-item a:hover{
+  color: #000
+}
 
-  .movies-list {
-    border-top: solid .1rem #333437; }
-    .movies-list__title {
-      padding: .3rem 0rem .3rem 1rem; }
+.actor-iamge img {
+  width: 100%
+}
 
-  footer {
-    padding: 3rem 0; }
+div.grey_columns {
+  background-color: #f1f1f1;
+  width: 100%;
+  min-height: calc(100vh - 795px);
+  padding-left: 40px;
+  padding-bottom: 40px;
+  /* -webkit-box-sizing: border-box; */
+  /* box-sizing: border-box; */
+  display: -ms-flexbox;
+  padding-top: 20px;}
+.section.facts ul li {
+  margin-bottom: 6px;
+  color: #000;}
+div.column p strong {
+  display: block;
+  padding-bottom: 6px;
+  font-weight: 600;
+  color: #000
+}
+.facts{}
 
-  .page-title {
-    padding: .3rem 0px .3rem 1rem;
-    line-height: 1;
-    font-weight: 500;
-    text-align: left !important;
-    color: #666666 !important;
-    font-size: 2.5rem !important;
-    margin-bottom: 2.5rem; }
+section.facts p {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  padding-right: 20px;
+  padding-bottom: 2px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  line-height: 1em;
+  color: #000;}
 
-  .modal-content {
-    background-color: transparent;
-    border: none; }
+  .section.facts ul li {
+    margin-bottom: 6px;
+    color: #000;
+}
+.space{
+  color: #000
+}
+.section.fact ul li {
+  margin-bottom: 6px;
+  color: #000;
+}
+.fact{
+  color: #000
+}
+.actortitle a {
+ color: #000
+}
+.actortitle {
+  width: 100%;
+    margin-bottom: 30px;
+}
+.actortitle h2 {
+  margin: 0;
+    padding: 0;
+    font-size: 2.4em;
+    line-height: 1.1em;
+    font-weight: 700;
+    display: inline-block;
+}
+.bio {    width: 100%;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+  line-height: 1.3em;
+  font-size: 1.3em;
+  margin-bottom: 8px;
+margin-top: 15px}
+.overview {
+  font-size: 16px
+}
 
-  a {
-    color: #ffffff !important;
-    text-decoration: none;
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects; }
-    a :hover {
-      color: #ffffff !important;
-      text-decoration: underline; }
+.movie-know {
+  padding-top: 10px;
+  padding-bottom: 10px
+}
 
-  .page-item.active .page-link {
-    z-index: 1;
-    color: #ffffff !important;
-    background-image: linear-gradient(136deg, #622774, #c53364);
-    border: none; }
+/*
+ * react-circular-progressbar styles
+ *
+ * All of the styles in this file are optional and configurable!
+ */
 
-  .page-item.disabled .page-link {
-    color: #ffffff;
-    pointer-events: none;
-    cursor: auto;
-    background-color: transparent; }
+.CircularProgressbar {
+  /*
+   * This fixes an issue where the CircularProgressbar svg has
+   * 0 width inside a "display: flex" container, and thus not visible.
+   *
+   * If you're not using "display: flex", you can remove this style.
+   */
+  width: 100%;
+}
 
-  .page-link {
-    position: relative;
-    display: block;
-    padding: .5rem .75rem;
-    margin-left: -.1rem;
-    line-height: 1.25;
-    color: #ffffff;
-    background-color: transparent;
-    border-radius: .5rem;
-    border: none; }
-    .page-link:hover {
-      color: #ffffff !important;
-      text-decoration: none;
-      background-image: linear-gradient(136deg, #622774, #c53364);
-      opacity: .4; }
+.CircularProgressbar .CircularProgressbar-path {
+  stroke: #01d277;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
 
-  .badge-primary {
-    color: #ffffff !important;
-    background-color: rgba(72, 74, 77, 0.733) !important;
-    font-weight: 100;
-    font-size: 1.2rem;
-    text-align: left;
-    color: rgba(255, 255, 255, 0.7);
-    border-radius: .5rem;
-    padding: .5rem 1.2rem; }
+.CircularProgressbar .CircularProgressbar-trail {
+  stroke: #2e3135;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  fill: white;
+  font-size: 26px;
+  font-weight: bold;
+  text-anchor: middle;
+}
+
+.CircularProgressbar .CircularProgressbar-background {
+  fill: #d6d6d6;
+}
+
+/*
+ * Sample background styles. Use these with e.g.:
+ *
+ *   <CircularProgressbar
+ *     className="CircularProgressbar-inverted"
+ *     background
+ *     percentage={50}
+ *   />
+ */
+ .CircularProgressbar .CircularProgressbar-path {
+  stroke: yellow !important;
+  stroke-linecap: round;
+  -webkit-transition: stroke-dashoffset 0.5s ease 0s;
+  -o-transition: stroke-dashoffset 0.5s ease 0s;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+.CircularProgressbar .CircularProgressbar-text {
+  fill: #fff !important;
+  font-size: 20px;
+  text-anchor: middle;
+}
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-background {
+  fill: #3e98c7;
+}
+
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-text {
+  fill: #fff;
+}
+
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-path {
+  stroke: #fff;
+}
+
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-trail {
+  stroke: transparent;
+}
+.movie-rating {
+    width: 10%;
+    -ms-flex-preferred-size: 25%;
+    padding: 10px;
+}
+.movie_title {
+  margin: 0;
+  padding: 0;
+  font-size: 2.4em;
+  line-height: 1.1em;
+  font-weight: 700;
+  display: inline-block;
+}
+.release_date {
+  opacity: 0.6;
+  font-size: .6em;
+  font-weight: 400;}
+.title a{
+  margin: 0;
+  padding: 0;
+  font-size: 1.1em;
+    line-height: 1.1em;
+  font-weight: 700;
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+}

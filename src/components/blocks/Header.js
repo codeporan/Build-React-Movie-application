@@ -16,11 +16,9 @@ class Header extends Component {
             }}
           />
           <NavLink className="navbar-brand" to="/">
-            <img
-              src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
-              className="d-inline-block align-middle mv-logo"
-              alt=""
-            />
+            <h1 className="d-inline-block align-middle mv-logo">
+              The Movie DB
+            </h1>
           </NavLink>
           <button
             className="navbar-toggler"
@@ -75,6 +73,16 @@ class Header extends Component {
                   to="/top_rated"
                 >
                   Top Rated
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link"
+                  activeClassName="active"
+                  exact
+                  to="/actorlist"
+                >
+                  Person
                 </NavLink>
               </li>
             </ul>

@@ -10,7 +10,9 @@ import {
 } from "./constants";
 export const fetchMovieByid = id => {
   const request = axios
-    .get(`${API_MOVIE_URL}/movie/${id}${API_KEY}`)
+    .get(
+      `${API_MOVIE_URL}/movie/${id}${API_KEY}&language=en-US&append_to_response=images&include_image_language=en,null`
+    )
     .then(res => res.data);
   return {
     type: FETCH_MOVIE_DETAILS,

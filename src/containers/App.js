@@ -9,20 +9,27 @@ import UpcomingPage from "./UpcomingPage";
 import GenrePage from "./GenrePage";
 import ActorPage from "./ActorPage";
 import Header from "../components/blocks/Header";
+import SearchBar from "../components/SearchBar";
+import Actor from "../components/Actor";
+import ActorList from "./personlist";
+
 const App = () => (
   <div>
     <Header />
+    {/* <SearchBar /> */}
     <div className="container-fuild">
       <div className="row">
-        <div className="col-6 col-lg-2 col-md-2 sidebar-offcanvas" id="sidebar">
+        {/* <div className="col-6 col-lg-2 col-md-2 sidebar-offcanvas" id="sidebar">
           <MoviesCategoryContainer />
-        </div>
-        <div className="col-12 col-md-10 col-lg-10">
+        </div> */}
+        <div className="col-md-12">
           <Switch>
             <Route exact path="/" component={HomePage} />
+            <Route exact path="/actorlist" component={ActorList} />
             <Route exact path="/upcoming" component={UpcomingPage} />
             <Route exact path="/now" component={NowPlayingPage} />
             <Route exact path="/top_rated" component={TopRatedPage} />
+            {/* <Route exact path="/genres/:id/movie" component={MoviePage} /> */}
             <Route exact path="/genres/:id/:genre" component={GenrePage} />
             <Route exact path="/movies/:id" component={MoviePage} />
             <Route exact path="/actors/:id" component={ActorPage} />
