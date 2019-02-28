@@ -1,12 +1,7 @@
 import React from "react";
 import MovieCard from "./blocks/MovieCard";
-import CardLoader from "./blocks/contentloader";
-const MoviesCardList = ({
-  movies,
-  loading,
-  hideOverview = false,
-  itemsPerRow = 4
-}) => {
+// import CardLoader from "./blocks/contentloader";
+const MoviesCardList = ({ movies }) => {
   const moviesList = () => {
     return (
       movies &&
@@ -16,15 +11,7 @@ const MoviesCardList = ({
           style={{ paddingBottom: 10 }}
           key={movie.id}
         >
-          {loading ? (
-            CardLoader
-          ) : (
-            <MovieCard
-              movie={movie}
-              loading={loading}
-              hideOverview={hideOverview}
-            />
-          )}
+          {<MovieCard movie={movie} />}
         </div>
       ))
     );

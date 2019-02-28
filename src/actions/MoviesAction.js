@@ -4,9 +4,11 @@ import {
   FETCH_MOVIES,
   FETCH_GENRE,
   FETCH_MOVIES_BY_GENRE,
-  FETCH_MOVIE_DETAILS
+  GET_DISCOVER_MOVIE,
+  SELECT_DROPDOWN
 } from "./constants";
-
+import { updateUrlParams } from "../components/utils/utils";
+const API = "fed69657ba4cc6e1078d2a6a95f51c8c";
 export const fetchgenre = () => {
   const request = axios
     .get(
@@ -36,6 +38,18 @@ export const fetchMovies = (page = 1, type = "popular") => {
     .then(res => res.data);
   return {
     type: FETCH_MOVIES,
+    payload: request
+  };
+};
+
+export const getMovie = item => {
+  const request = axios
+    .get(
+      `${API_MOVIE_URL}/discover/movie${API_KEY}&language=en-US&region=us&include_adult=false&vote_count.gte=200&${item}`
+    )
+    .then(res => res.data);
+  return {
+    type: GET_DISCOVER_MOVIE,
     payload: request
   };
 };

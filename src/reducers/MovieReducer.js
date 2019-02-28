@@ -27,14 +27,14 @@ export default (state = initalState, action = {}) => {
         movie_details: action.payload
       };
     case FETCH_MOVIE_VIDEOS:
-      const trailer = action.payload.results.filter(
-        video => video.site === "YouTube"
-      )[0];
+      // const trailer = action.payload.results.filter(
+      //   video => video.site === "YouTube"
+      // )[0];
       return {
         ...state,
         loading: false,
-        movie_videos: action.payload,
-        trailer: trailer
+        movie_videos: action.payload
+        // trailer: trailer
       };
     case FETCH_MOVIE_CAST:
       return {

@@ -49,6 +49,16 @@ class Header extends Component {
                   className="nav-link"
                   activeClassName="active"
                   exact
+                  to="/discover"
+                >
+                  Discover Movies
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link"
+                  activeClassName="active"
+                  exact
                   to="/upcoming"
                 >
                   Upcoming Movies

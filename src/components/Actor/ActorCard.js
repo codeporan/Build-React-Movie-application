@@ -2,7 +2,6 @@ import React, { Component } from "react";
 class Actorlist extends Component {
   render() {
     const { person } = this.props;
-    console.log(person);
     return (
       <div className="row results flex results_profile_card">
         {person.results &&
